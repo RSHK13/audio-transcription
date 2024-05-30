@@ -18,7 +18,7 @@ document.getElementById('recordButton').addEventListener('click', async () => {
     let formData = new FormData();
     formData.append('audio', audioBlob);
 
-    let response = await fetch('https://YOUR_HEROKU_APP.herokuapp.com/process_audio', {
+    let response = await fetch('https://YOUR_RENDER_APP_URL.onrender.com/process_audio', {
       method: 'POST',
       body: formData
     });
