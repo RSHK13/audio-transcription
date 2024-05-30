@@ -23,6 +23,8 @@ document.getElementById('recordButton').addEventListener('click', async () => {
 
     console.log("Sending audio to server");
 
+    document.getElementById('loadingMessage').style.display = 'block';  // Show "please wait" message
+
     try {
       let response = await fetch('https://flask-backend-csy4.onrender.com/process_audio', {
         method: 'POST',
@@ -38,6 +40,8 @@ document.getElementById('recordButton').addEventListener('click', async () => {
     } catch (error) {
       console.error("Error processing audio", error);
       document.getElementById('result').innerText = `Error: ${error.message}`;
+    } finally {
+      document.getElementById('loadingMessage').style.display = 'none';  // Hide "please wait" message
     }
   };
 
