@@ -1,30 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Audio Transcription - Tata Motors Ltd</title>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>Audio Recording API Demo</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-  <div class="container">
-    <h1 class="my-4 text-center">Tata Motors Ltd</h1>
-    <h2 class="my-4 text-center">Audio Transcription</h2>
-    <div class="text-center">
-      <button id="recordButton" class="btn btn-primary">Record</button>
-      <button id="stopButton" class="btn btn-danger" disabled>Stop</button>
+    <div class="audio-recording-container">
+        <h1 class="title">Audio Recording API Demo</h1>
+        <i class="start-recording-button fa fa-microphone" aria-hidden="true"></i>
+        <div class="recording-contorl-buttons-container hide">
+            <i class="cancel-recording-button fa fa-times-circle-o" aria-hidden="true"></i>
+            <div class="recording-elapsed-time">
+                <i class="red-recording-dot fa fa-circle" aria-hidden="true"></i>
+                <p class="elapsed-time"></p>
+            </div>
+            <i class="stop-recording-button fa fa-stop-circle-o" aria-hidden="true"></i>
+        </div>
+        <div class="text-indication-of-audio-playing-container">
+            <p class="text-indication-of-audio-playing hide">Audio is playing<span>.</span><span>.</span><span>.</span></p>
+        </div>
     </div>
-    <div class="my-4 text-center">
-      <audio id="audioPlayback" controls></audio>
+    <div class="overlay hide">
+        <div class="browser-not-supporting-audio-recording-box">
+            <p>To record audio, use browsers like Chrome and Firefox that support audio recording.</p>
+            <button type="button" class="close-browser-not-supported-box">Ok.</button>
+        </div>
     </div>
-    <div id="result" class="text-center"></div>
-    <div id="loadingMessage" class="text-center" style="display: none;">
-      <p>Please wait, your audio is being processed...</p>
-    </div>
-  </div>
-  <script src="script.js"></script>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <audio controls class="audio-element hide">
+    </audio>
+
+    <script src="js/audio-recording.js"></script>
+    <script src="js/index.js"></script>
 </body>
+
 </html>
